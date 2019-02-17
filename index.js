@@ -1,10 +1,6 @@
-/**
- * @format
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
+import { AppRegistry } from 'react-native'
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+import { name as appName } from './app.json'
+import Root from './src/root'
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => Root);
