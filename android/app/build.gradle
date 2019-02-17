@@ -1,4 +1,11 @@
 apply plugin: "com.android.application"
+
+project.ext.envConfigFiles = [
+        debug: ".env",
+        release: ".env",
+        stagingrelease: ".env.staging",
+        productionrelease: ".env.production"
+]
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
@@ -113,10 +120,28 @@ android {
             include "armeabi-v7a", "x86", "arm64-v8a"
         }
     }
+    signingConfigs {
+        release {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
+    }
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
+        }
+        debug {
+            debuggable true
+        }
+        stagingrelease {
+            initWith release
+        }
+        productionrelease {
+            initWith release
         }
     }
     // applicationVariants are e.g. debug, release

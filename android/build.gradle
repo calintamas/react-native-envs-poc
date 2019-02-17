@@ -37,3 +37,18 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.7'
     distributionUrl = distributionUrl.replace("bin", "all")
 }
+
+subprojects { subproject ->
+    afterEvaluate{
+        android {
+            buildTypes {
+                stagingrelease {
+                    initWith release
+                }
+                productionrelease {
+                    initWith release
+                }
+            }
+        }
+    }
+}
