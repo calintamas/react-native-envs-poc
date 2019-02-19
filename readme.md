@@ -15,13 +15,14 @@ API_HOST=api_host
 IS_PRODUCTION=true
 API_HOST=api_host
 ```
-`.env` is used for the local environment, while the other two for `staging` and `production`.
+`.env` is used for the local environment, while the other two for `staging` and `production`. The setup uses `schemes` on iOS and `buildTypes` on Android.
 
-The setup uses `schemes` on iOS and `buildTypes` on Android.
-
-I'm using `fastlane` to automate builds & reduce the release to a one-liner script:
+---
+I'm using `fastlane` to automate builds & reduce the app release to a one-liner script:
 ```
 fastlane ios beta --evn=production
 ```
 
-I've written an article that describes the whole process [here](https://around25.com/blog/manage-staging-and-production-environments-for-react-native-app/).
+---
+
+Also, I wrote an article that describes the whole process [here](https://around25.com/blog/manage-staging-and-production-environments-for-react-native-app/).
