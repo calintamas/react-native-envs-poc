@@ -22,7 +22,7 @@ API_HOST=api_host
 I'm using `fastlane` to automate builds & reduce the app release to a one-liner script:
 ```sh
 cd fastlane
-fastlane ios beta --evn=production
+fastlane ios beta --env=production
 ```
 
 Also, I wrote an article that describes the whole process [here](https://around25.com/blog/manage-staging-and-production-environments-for-react-native-app/).
