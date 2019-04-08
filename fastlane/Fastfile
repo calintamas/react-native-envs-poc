@@ -29,7 +29,7 @@ platform :ios do
     )
 
     gym(
-      xcodeproj: './ios/FooBar.xcodeproj',
+      project: './ios/FooBar.xcodeproj',
       scheme: "FooBar.#{api_environment}"
     )
 
